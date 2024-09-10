@@ -20,18 +20,18 @@
 
 ### Step 1: Clone the Repository
 
-\`\`\`bash
+```bash
 git clone <repo-url>
 cd GrantCrew
-\`\`\`
+```
 
 ### Step 2: Install the Required Dependencies
 
 Ensure you have `pip` installed, then run:
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ## Usage
 
@@ -44,15 +44,15 @@ pip install -r requirements.txt
 
    You can run the program using:
 
-   \`\`\`bash
+   ```bash
    python main.py
-   \`\`\`
+   ```
 
    Or, if your system uses Python 3:
 
-   \`\`\`bash
+   ```bash
    python3 main.py
-   \`\`\`
+   ```
 
 3. **Specify State and Field**
 
@@ -68,9 +68,9 @@ pip install -r requirements.txt
 
 ## Example
 
-\`\`\`bash
+```bash
 python3 main.py
-\`\`\`
+```
 
 **Prompt:**
 - Enter State: `California`
