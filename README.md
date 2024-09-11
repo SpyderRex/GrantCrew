@@ -21,7 +21,7 @@
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/SpyderRex/GrantCrew
 cd GrantCrew
 ```
 
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 
 1. **Obtain API Keys**  
    You will need to obtain the following API keys:
-   - **Groq API Key:** You can sign up for a free account and obtain an API key [here](https://groq.com/api).
+   - **Groq API Key:** You can sign up for a free account and obtain an API key [here](https://console.groq.com/docs/quickstart).
    - **Serper API Key:** You can sign up and get your API key [here](https://serper.dev/).
 
 2. **Run the Program**
