@@ -15,6 +15,7 @@
 - **Python 3.8+**
 - **Groq API Key:** Required for accessing the Llama3 model.
 - **Serper API Key:** Required for performing the grant searches.
+- **Firecrawl API Key:** Required for web scraping.
 
 ## Installation
 
