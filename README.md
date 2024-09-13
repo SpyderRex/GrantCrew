@@ -39,6 +39,7 @@ pip install -r requirements.txt
    You will need to obtain the following API keys:
    - **Groq API Key:** You can sign up for a free account and obtain an API key [here](https://console.groq.com/docs/quickstart).
    - **Serper API Key:** You can sign up and get your API key [here](https://serper.dev/).
+   - **Firecrawl API Key:** You can sign up and get your API key [here](firecrawl.dev)
 
 2. **Run the Program**
 
