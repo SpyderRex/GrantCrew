@@ -1,16 +1,17 @@
 import os
 import json
-import requests
-from bs4 import BeautifulSoup
 from crewai import Agent, Task, Crew
 from langchain.tools import tool
 from langchain_groq import ChatGroq
 from dotenv import load_dotenv
+from firecrawl.firecrawl import FirecrawlApp
 
 load_dotenv()
 
 groq_api_key = os.getenv("GROQ_API_KEY")
+firecrawl_api_key = os.getenv("FIRECRAWL_API_KEY")
 llm = ChatGroq(api_key=groq_api_key, model="llama-3.1-70b-versatile")
+firecrawl_app = FirecrawlApp(api_key=firecrawl_api_key)
 
 class BrowserTools():
 
@@ -18,14 +19,12 @@ class BrowserTools():
     def scrape_and_summarize_website(website):
         """Useful to scrape and summarize website content."""
         
-        # Fetch the website content
-        response = requests.get(website)
-        if response.status_code != 200:
+        # Fetch the website content using Firecrawl
+        scrape_result = firecrawl_app.scrape_url(website)
+        if not scrape_result or 'markdown' not in scrape_result:
             return f"Failed to retrieve content from {website}"
         
-        # Parse HTML content
-        soup = BeautifulSoup(response.text, 'html.parser')
-        content = soup.get_text(separator='\n')
+        content = scrape_result['markdown']
         
         # Split the content into chunks if it's too long
         content_chunks = [content[i:i + 8000] for i in range(0, len(content), 8000)]
