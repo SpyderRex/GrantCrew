@@ -19,15 +19,17 @@ class GrantCrew:
 
         fed_grant_agent = agents.fed_grant_agent()
         state_grant_agent = agents.state_grant_agent()
-        report_agent = agents.report_agent()
+        fed_grant_report_agent = agents.fed_grant_report_agent()
+        state_grant_report_agent = agents.state_grant_report_agent()
 
         fed_grant_task = tasks.fed_grant_task(fed_grant_agent, self.field)
         state_grant_task = tasks.state_grant_task(state_grant_agent, self.state, self.field)
-        report_task = tasks.report_task(report_agent)
+        fed_grant_report_task = tasks.federal_grant_report_task(fed_grant_report_agent, self.field)
+        state_grant_report_task = tasks.state_grant_report_task(state_grant_report_agent, self.field, self.state)
 
         crew = Crew(
-            agents=[fed_grant_agent, state_grant_agent, report_agent],
-            tasks=[fed_grant_task, state_grant_task, report_task],
+            agents=[fed_grant_agent, fed_grant_report_agent, state_grant_agent, state_grant_report_agent],
+            tasks=[fed_grant_task, fed_grant_report_task, state_grant_task, state_grant_report_task],
             verbose=True
         )
 

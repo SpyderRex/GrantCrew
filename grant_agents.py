@@ -41,10 +41,19 @@ class GrantAgents():
         verbose=True,
         llm=llm)
 
-  def report_agent(self):
+  def fed_grant_report_agent(self):
     return Agent(
-        role=' Report Writer',
-        goal="""Write a detailed analysis of the available federal and state grants for the given city and in the given field""",
+        role='Federal Grant Report Writer',
+        goal="""Write a detailed analysis of the available federal grants in the given field""",
+        backstory="""Specialist writing detailed analyses with 
+        decades of experience.""",
+        verbose=True,
+        llm=llm)
+
+  def state_grant_report_agent(self):
+    return Agent(
+        role='State Grant Report Writer',
+        goal="""Write a detailed analysis of the available state grants for the given state in the given field""",
         backstory="""Specialist writing detailed analyses with 
         decades of experience.""",
         verbose=True,

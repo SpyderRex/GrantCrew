@@ -35,21 +35,43 @@ class GrantTasks:
             expected_output="Detailed report on available state grants, including amount, deadlines, and stipulations specific to the state."
         )
 
-    def report_task(self, agent):
+    def federal_grant_report_task(self, agent, field):
         return Task(
             description=dedent(f"""
-                Compile a comprehensive report summarizing both federal and state grant opportunities for the specified field.
+                Compile a comprehensive report summarizing federal grant opportunities for the specified field.
                 
-                The report should include a clear comparison between federal and state grants, highlighting any overlaps or unique opportunities. It should also cover insights into eligibility, application deadlines, grant amounts, and any other critical details to consider when applying for these grants.
+                The report should include a clear details for the available federal grants, highlighting unique opportunities. It should also cover insights into eligibility, application deadlines, grant amounts, and any other critical details to consider when applying for these grants.
                 
                 The final answer must be a well-structured document, formatted as markdown, providing a complete overview of the grant landscape for the field.
+
+                Field: {field}
 
                 {self.__tip_section()}
             """),
             agent=agent,
-            expected_output="Comprehensive markdown report summarizing federal and state grant opportunities, with comparison and detailed insights.",
-            output_file="grant_report.md"
+            expected_output="Comprehensive markdown report summarizing federal grant opportunities, with detailed insights.",
+            output_file="federal_grant_report.md"
         )
+
+    def state_grant_report_task(self, agent, state, field):
+        return Task(
+            description=dedent(f"""
+                Compile a comprehensive report summarizing state grant opportunities for the specified field.
+                
+                The report should include a clear details for the available state grants, highlighting any unique opportunities. It should also cover insights into eligibility, application deadlines, grant amounts, and any other critical details to consider when applying for these grants.
+                
+                The final answer must be a well-structured document, formatted as markdown, providing a complete overview of the grant landscape for the field.
+
+                State: {state}
+                Field: {field}
+
+                {self.__tip_section()}
+            """),
+            agent=agent,
+            expected_output="Comprehensive markdown report summarizing state grant opportunities, with detailed insights.",
+            output_file="state_grant_report.md"
+        )
+
 
     def __tip_section(self):
         return "If you do your BEST WORK, I'll tip you $1000!"
